@@ -1,0 +1,57 @@
+{% set navigation_bar = [
+    ('/', 'index', 'Dashbord'),
+    ('/product', 'product', 'Product'),
+    ('/addproduct', 'addproduct', 'Add Product'),
+    ('/order', 'order', 'Order'),
+    ('/profil', 'profil', 'User Profil')
+] -%}
+
+{% set active_page = active_page|default('index') -%}
+
+{% set icon = ['edit','vertical_split','note_add','add_shopping_cart','person'] %}
+
+{% for href, id, caption in navigation_bar %}
+        <li class="nav-item">
+            <a {% if id == active_page %} class="nav-link active"{% endif%} class="nav-link" class="nav-link" href="{{ href|e }}">
+            <i class="material-icons">{{ icon[loop.index0] }}</i>
+            <span>{{ caption }}</span>
+            </a>
+        </li>
+{% endfor %}
+
+      <!-- <li class="nav-item">
+        <a class="nav-link " href="{{ url_for('product') }}">
+          <i class="material-icons">vertical_split</i>
+          <span>Blog Posts</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{ url_for('addproduct') }}">
+          <i class="material-icons">note_add</i>
+          <span>Add New Product</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{ url_for('order') }}">
+          <i class="material-icons">view_module</i>
+          <span>order</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="tables.html">
+          <i class="material-icons">table_chart</i>
+          <span>Tables</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="user-profile-lite.html">
+          <i class="material-icons">person</i>
+          <span>User Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="errors.html">
+          <i class="material-icons">error</i>
+          <span>Errors</span>
+        </a>
+      </li> -->
